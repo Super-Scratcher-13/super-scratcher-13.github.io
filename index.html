@@ -11,8 +11,11 @@
   h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
   h1 span { color: #ff8c1a; }
   .tagline { font-size: 1.15rem; color: #4b5563; font-weight: 600; margin-bottom: 1.4rem; }
-  .btn { display: inline-block; background: #ff8c1a; color: #fff; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 700; }
-  .btn:hover { background: #e67300; }
+  .header-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+  .btn { display: inline-block; background: #ff8c1a; color: #fff; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 700; border: 2px solid #ff8c1a; }
+  .btn:hover { background: #e67300; border-color: #e67300; }
+  .btn-alt { display: inline-block; background: #fff; color: #e67300; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 700; border: 2px solid #ff8c1a; }
+  .btn-alt:hover { background: #fff0e0; }
   main { max-width: 940px; margin: 2rem auto; padding: 0 1.5rem; }
   .card { background: #fff; border: 2px solid #ffd6ad; border-radius: 16px; padding: 1.8rem; margin-bottom: 2rem; }
   h2 { font-size: 1.5rem; margin-bottom: 1rem; border-left: 5px solid #ff8c1a; padding-left: 0.75rem; }
@@ -34,7 +37,10 @@
 <header>
   <h1><span>SuperScratcher13</span> | Official Website</h1>
   <p class="tagline">Scratch coder &amp; Game Maker</p>
-  <a href="#" data-p="/users/-SuperScratcher13-/projects/" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
+  <div class="header-btns">
+    <a href="#" data-p="/users/-SuperScratcher13-/" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
+    <a href="#" data-p="/users/-SuperScratcher14-/" target="_blank" rel="noopener noreferrer" class="btn-alt">View Aesthetic Account: -SuperScratcher14-</a>
+  </div>
 </header>
 
 <main>
@@ -45,7 +51,7 @@
       <div class="stat"><strong>208K</strong>Views</div>
       <div class="stat"><strong>5.2K</strong>Loves</div>
       <div class="stat"><strong>4.3K</strong>Favourites</div>
-      <div class="stat"><strong>570</strong>Follows</div>
+      <div class="stat"><strong>570</strong>Followers</div>
     </div>
   </section>
 
