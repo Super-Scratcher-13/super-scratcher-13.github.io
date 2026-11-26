@@ -21,9 +21,8 @@
   .stat strong { display: block; font-size: 1.5rem; color: #e67300; }
   .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
   .game { background: #fff0e0; border: 2px solid #ffd6ad; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
-  .thumb-box { display: flex; align-items: center; justify-content: center; background: #fff; border-bottom: 2px solid #ffd6ad; aspect-ratio: 282 / 210; text-decoration: none; }
-  .thumb-box img { width: 100%; height: 100%; object-fit: contain; }
-  .fallback { display: none; width: 100%; height: 100%; background: #ff8c1a; color: #fff; font-weight: 800; font-size: 1.3rem; align-items: center; justify-content: center; }
+  .thumb-box { display: flex; align-items: center; justify-content: center; background: #fff; border-bottom: 2px solid #ffd6ad; aspect-ratio: 4 / 3; text-decoration: none; }
+  .thumb-box img { width: 100%; height: 100%; object-fit: cover; }
   .game-body { padding: 1.1rem; display: flex; flex-direction: column; gap: 0.8rem; }
   .play { display: block; text-align: center; background: #ff8c1a; color: #fff; padding: 0.6rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
   .play:hover { background: #e67300; }
@@ -54,8 +53,7 @@
     <div class="games">
       <div class="game">
         <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
-          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="GridWord">
-          <div class="fallback">GridWord</div>
+          <img src="1388867402_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1388867402_144x108';}" alt="GridWord">
         </a>
         <div class="game-body">
           <h3>GridWord - Daily Word Puzzle Game</h3>
@@ -65,8 +63,7 @@
 
       <div class="game">
         <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
-          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Squares">
-          <div class="fallback">Squares</div>
+          <img src="1378589154_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1378589154_144x108';}" alt="Squares">
         </a>
         <div class="game-body">
           <h3>Squares</h3>
@@ -76,11 +73,10 @@
 
       <div class="game">
         <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
-          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Boxed In">
-          <div class="fallback">Boxed In</div>
+          <img src="1366357023_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1366357023_144x108';}" alt="Boxed In">
         </a>
         <div class="game-body">
-          <h3>Boxed In</h3>
+          <h3>Boxed In!</h3>
           <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
         </div>
       </div>
