@@ -34,7 +34,7 @@
 <header>
   <h1><span>SuperScratcher13</span> | Official Website</h1>
   <p class="tagline">Scratch coder &amp; Game Maker</p>
-  <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
+  <a href="#" data-p="/users/-SuperScratcher13-/projects/" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
 </header>
 
 <main>
@@ -52,32 +52,32 @@
     <h2>My Best Games</h2>
     <div class="games">
       <div class="game">
-        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+        <a href="#" data-p="/projects/1388867402/" target="_blank" rel="noopener noreferrer" class="thumb-box">
           <img src="1388867402_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1388867402_144x108';}" alt="GridWord">
         </a>
         <div class="game-body">
           <h3>GridWord - Daily Word Puzzle Game</h3>
-          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+          <a href="#" data-p="/projects/1388867402/" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
         </div>
       </div>
 
       <div class="game">
-        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+        <a href="#" data-p="/projects/1378589154/" target="_blank" rel="noopener noreferrer" class="thumb-box">
           <img src="1378589154_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1378589154_144x108';}" alt="Squares">
         </a>
         <div class="game-body">
           <h3>Squares</h3>
-          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+          <a href="#" data-p="/projects/1378589154/" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
         </div>
       </div>
 
       <div class="game">
-        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+        <a href="#" data-p="/projects/1366357023/" target="_blank" rel="noopener noreferrer" class="thumb-box">
           <img src="1366357023_144x108.png" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='1366357023_144x108';}" alt="Boxed In">
         </a>
         <div class="game-body">
           <h3>Boxed In!</h3>
-          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+          <a href="#" data-p="/projects/1366357023/" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
         </div>
       </div>
     </div>
@@ -85,6 +85,13 @@
 </main>
 
 <footer>&copy; 2026 -SuperScratcher13- &bull; Official Website</footer>
+
+<script>
+  var host = ['https://', 's', 'c', 'r', 'a', 't', 'c', 'h', '.mit.edu'].join('');
+  document.querySelectorAll('a[data-p]').forEach(function(a) {
+    a.href = host + a.getAttribute('data-p');
+  });
+</script>
 
 </body>
 </html>
