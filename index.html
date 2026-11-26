@@ -1,308 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperScratcher13 | Official Website</title>
-    <style>
-        :root {
-            --bg-main: #fffaf5;
-            --bg-card: #ffffff;
-            --orange-primary: #ff8c1a;
-            --orange-dark: #e67300;
-            --orange-soft: #fff0e0;
-            --orange-border: #ffd6ad;
-            --text-dark: #1f2937;
-            --text-muted: #4b5563;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, #ffffff 0%, var(--orange-soft) 100%);
-            border-bottom: 3px solid var(--orange-primary);
-            padding: 3.5rem 1.5rem;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.6rem;
-            color: var(--text-dark);
-            margin-bottom: 0.4rem;
-        }
-
-        h1 span {
-            color: var(--orange-primary);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--orange-primary);
-            color: #ffffff;
-            padding: 0.75rem 1.6rem;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 4px 12px rgba(255, 140, 26, 0.25);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--orange-dark);
-            transform: translateY(-2px);
-        }
-
-        main {
-            max-width: 900px;
-            margin: 2.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            border: 2px solid var(--orange-border);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
-        }
-
-        h2 {
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        h2::before {
-            content: "";
-            display: inline-block;
-            width: 6px;
-            height: 24px;
-            background-color: var(--orange-primary);
-            border-radius: 4px;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
-        }
-
-        .stat-box {
-            background-color: var(--orange-soft);
-            border: 1px solid var(--orange-border);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--orange-dark);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* Pure CSS Game Switcher */
-        .tab-radio {
-            display: none;
-        }
-
-        .game-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tab-btn {
-            background-color: var(--orange-soft);
-            color: var(--text-dark);
-            border: 2px solid var(--orange-border);
-            padding: 0.6rem 1.2rem;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            user-select: none;
-        }
-
-        .tab-btn:hover {
-            border-color: var(--orange-primary);
-        }
-
-        #tab-gridword:checked ~ .game-tabs label[for="tab-gridword"],
-        #tab-squares:checked ~ .game-tabs label[for="tab-squares"],
-        #tab-boxedin:checked ~ .game-tabs label[for="tab-boxedin"] {
-            background-color: var(--orange-primary);
-            color: #ffffff;
-            border-color: var(--orange-primary);
-        }
-
-        .game-panel {
-            display: none;
-            text-align: center;
-        }
-
-        #tab-gridword:checked ~ #panel-gridword,
-        #tab-squares:checked ~ #panel-squares,
-        #tab-boxedin:checked ~ #panel-boxedin {
-            display: block;
-        }
-
-        .game-title-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--orange-border);
-        }
-
-        .game-title-row h3 {
-            font-size: 1.3rem;
-            color: var(--text-dark);
-        }
-
-        .scratch-link {
-            color: var(--orange-dark);
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .scratch-link:hover {
-            text-decoration: underline;
-        }
-
-        .embed-wrapper {
-            display: flex;
-            justify-content: center;
-            overflow-x: auto;
-            background-color: #f9fafb;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid #e5e7eb;
-        }
-
-        iframe {
-            border-radius: 8px;
-            max-width: 100%;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 1rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--orange-border);
-            background-color: #ffffff;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SuperScratcher13 | Official Website</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+  body { background: #fffaf5; color: #1f2937; line-height: 1.6; }
+  header { background: linear-gradient(135deg, #fff 0%, #fff0e0 100%); border-bottom: 3px solid #ff8c1a; padding: 3rem 1.5rem; text-align: center; }
+  h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
+  h1 span { color: #ff8c1a; }
+  .tagline { font-size: 1.15rem; color: #4b5563; font-weight: 600; margin-bottom: 1.4rem; }
+  .btn { display: inline-block; background: #ff8c1a; color: #fff; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 700; }
+  .btn:hover { background: #e67300; }
+  main { max-width: 940px; margin: 2rem auto; padding: 0 1.5rem; }
+  .card { background: #fff; border: 2px solid #ffd6ad; border-radius: 16px; padding: 1.8rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.5rem; margin-bottom: 1rem; border-left: 5px solid #ff8c1a; padding-left: 0.75rem; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.2rem; }
+  .stat { background: #fff0e0; border: 1px solid #ffd6ad; border-radius: 12px; padding: 0.9rem; text-align: center; }
+  .stat strong { display: block; font-size: 1.5rem; color: #e67300; }
+  .games { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
+  .game { background: #fff0e0; border: 2px solid #ffd6ad; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+  .thumb-box { display: flex; align-items: center; justify-content: center; background: #fff; border-bottom: 2px solid #ffd6ad; aspect-ratio: 282 / 210; text-decoration: none; }
+  .thumb-box img { width: 100%; height: 100%; object-fit: contain; }
+  .fallback { display: none; width: 100%; height: 100%; background: #ff8c1a; color: #fff; font-weight: 800; font-size: 1.3rem; align-items: center; justify-content: center; }
+  .game-body { padding: 1.1rem; display: flex; flex-direction: column; gap: 0.8rem; }
+  .play { display: block; text-align: center; background: #ff8c1a; color: #fff; padding: 0.6rem; border-radius: 8px; text-decoration: none; font-weight: 700; }
+  .play:hover { background: #e67300; }
+  footer { text-align: center; padding: 1.5rem; color: #4b5563; font-size: 0.9rem; border-top: 1px solid #ffd6ad; background: #fff; }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1><span>SuperScratcher13</span> | Official Website</h1>
-        <p class="tagline">Scratch coder &amp; Game Maker</p>
-        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
-    </header>
+<header>
+  <h1><span>SuperScratcher13</span> | Official Website</h1>
+  <p class="tagline">Scratch coder &amp; Game Maker</p>
+  <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
+</header>
 
-    <main>
-        <section class="card">
-            <h2>About Me</h2>
-            <p class="intro-text">Hi! I'm <strong>-SuperScratcher13-</strong>. This is my official website.</p>
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <span class="stat-number">207K</span>
-                    <span class="stat-label">Views</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">5.2K</span>
-                    <span class="stat-label">Loves</span>
-                </div>
-                <div class="stat-box">
-                    <span class="stat-number">4.3K</span>
-                    <span class="stat-label">Favourites</span>
-                </div>
-            </div>
-        </section>
+<main>
+  <section class="card">
+    <h2>About Me</h2>
+    <p>Hi! I'm <strong>-SuperScratcher13-</strong>. This is my official website.</p>
+    <div class="stats">
+      <div class="stat"><strong>207K</strong>Views</div>
+      <div class="stat"><strong>5.2K</strong>Loves</div>
+      <div class="stat"><strong>4.3K</strong>Favourites</div>
+    </div>
+  </section>
 
-        <section class="card">
-            <h2>My Best Games</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1.25rem;">Pick a game below and play it right here in your browser!</p>
+  <section class="card">
+    <h2>My Best Games</h2>
+    <div class="games">
+      <div class="game">
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="GridWord">
+          <div class="fallback">GridWord</div>
+        </a>
+        <div class="game-body">
+          <h3>GridWord - Daily Word Puzzle Game</h3>
+          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+        </div>
+      </div>
 
-            <input type="radio" name="game-select" id="tab-gridword" class="tab-radio" checked>
-            <input type="radio" name="game-select" id="tab-squares" class="tab-radio">
-            <input type="radio" name="game-select" id="tab-boxedin" class="tab-radio">
+      <div class="game">
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Squares">
+          <div class="fallback">Squares</div>
+        </a>
+        <div class="game-body">
+          <h3>Squares</h3>
+          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+        </div>
+      </div>
 
-            <div class="game-tabs">
-                <label for="tab-gridword" class="tab-btn">GridWord - Daily Word Puzzle</label>
-                <label for="tab-squares" class="tab-btn">Squares</label>
-                <label for="tab-boxedin" class="tab-btn">Boxed In</label>
-            </div>
+      <div class="game">
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="thumb-box">
+          <img src="https://mit.edu" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Boxed In">
+          <div class="fallback">Boxed In</div>
+        </a>
+        <div class="game-body">
+          <h3>Boxed In</h3>
+          <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="play">Open on Scratch &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-            <div id="panel-gridword" class="game-panel">
-                <div class="game-title-row">
-                    <h3>GridWord - Daily Word Puzzle Game</h3>
-                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
-                </div>
-                <div class="embed-wrapper">
-                    <iframe src="https://mit.eduembed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                </div>
-            </div>
+<footer>&copy; 2026 -SuperScratcher13- &bull; Official Website</footer>
 
-            <div id="panel-squares" class="game-panel">
-                <div class="game-title-row">
-                    <h3>Squares</h3>
-                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
-                </div>
-                <div class="embed-wrapper">
-                    <iframe src="https://mit.eduembed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                </div>
-            </div>
-
-            <div id="panel-boxedin" class="game-panel">
-                <div class="game-title-row">
-                    <h3>Boxed In</h3>
-                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
-                </div>
-                <div class="embed-wrapper">
+</body>
+</html>
