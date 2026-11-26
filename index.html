@@ -36,19 +36,6 @@
             text-align: center;
         }
 
-        .badge {
-            display: inline-block;
-            background-color: #ffffff;
-            color: var(--orange-dark);
-            padding: 0.35rem 1rem;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-            border: 2px solid var(--orange-border);
-        }
-
         h1 {
             font-size: 2.6rem;
             color: var(--text-dark);
@@ -151,6 +138,11 @@
             letter-spacing: 0.5px;
         }
 
+        /* Pure CSS Game Switcher */
+        .tab-radio {
+            display: none;
+        }
+
         .game-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -168,13 +160,16 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
+            user-select: none;
         }
 
         .tab-btn:hover {
             border-color: var(--orange-primary);
         }
 
-        .tab-btn.active {
+        #tab-gridword:checked ~ .game-tabs label[for="tab-gridword"],
+        #tab-squares:checked ~ .game-tabs label[for="tab-squares"],
+        #tab-boxedin:checked ~ .game-tabs label[for="tab-boxedin"] {
             background-color: var(--orange-primary);
             color: #ffffff;
             border-color: var(--orange-primary);
@@ -185,7 +180,9 @@
             text-align: center;
         }
 
-        .game-panel.active {
+        #tab-gridword:checked ~ #panel-gridword,
+        #tab-squares:checked ~ #panel-squares,
+        #tab-boxedin:checked ~ #panel-boxedin {
             display: block;
         }
 
@@ -244,10 +241,9 @@
 <body>
 
     <header>
-        <div class="badge">SCRATCH CODER &amp; GAME MAKER</div>
         <h1><span>SuperScratcher13</span> | Official Website</h1>
         <p class="tagline">Scratch coder &amp; Game Maker</p>
-        <a href="https://mit.edu" target="_blank" class="btn">Follow -SuperScratcher13- on Scratch</a>
+        <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="btn">Follow -SuperScratcher13- on Scratch</a>
     </header>
 
     <main>
@@ -274,57 +270,39 @@
             <h2>My Best Games</h2>
             <p style="color: var(--text-muted); margin-bottom: 1.25rem;">Pick a game below and play it right here in your browser!</p>
 
+            <input type="radio" name="game-select" id="tab-gridword" class="tab-radio" checked>
+            <input type="radio" name="game-select" id="tab-squares" class="tab-radio">
+            <input type="radio" name="game-select" id="tab-boxedin" class="tab-radio">
+
             <div class="game-tabs">
-                <button class="tab-btn active" onclick="showGame('gridword', this)">GridWord - Daily Word Puzzle</button>
-                <button class="tab-btn" onclick="showGame('squares', this)">Squares</button>
-                <button class="tab-btn" onclick="showGame('boxedin', this)">Boxed In</button>
+                <label for="tab-gridword" class="tab-btn">GridWord - Daily Word Puzzle</label>
+                <label for="tab-squares" class="tab-btn">Squares</label>
+                <label for="tab-boxedin" class="tab-btn">Boxed In</label>
             </div>
 
-            <div id="gridword" class="game-panel active">
+            <div id="panel-gridword" class="game-panel">
                 <div class="game-title-row">
                     <h3>GridWord - Daily Word Puzzle Game</h3>
-                    <a href="https://mit.edu" target="_blank" class="scratch-link">Open on Scratch &rarr;</a>
+                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
                 </div>
                 <div class="embed-wrapper">
                     <iframe src="https://mit.eduembed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <div id="squares" class="game-panel">
+            <div id="panel-squares" class="game-panel">
                 <div class="game-title-row">
                     <h3>Squares</h3>
-                    <a href="https://mit.edu" target="_blank" class="scratch-link">Open on Scratch &rarr;</a>
+                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
                 </div>
                 <div class="embed-wrapper">
                     <iframe src="https://mit.eduembed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <div id="boxedin" class="game-panel">
+            <div id="panel-boxedin" class="game-panel">
                 <div class="game-title-row">
                     <h3>Boxed In</h3>
-                    <a href="https://mit.edu" target="_blank" class="scratch-link">Open on Scratch &rarr;</a>
+                    <a href="https://mit.edu" target="_blank" rel="noopener noreferrer" class="scratch-link">Open on Scratch &rarr;</a>
                 </div>
                 <div class="embed-wrapper">
-                    <iframe src="https://mit.eduembed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 -SuperScratcher13- &bull; Official Website</p>
-    </footer>
-
-    <script>
-        function showGame(gameId, btn) {
-Use code with caution.
-document.querySelectorAll('.game-panel').forEach(panel => {
-panel.classList.remove('active');
-});
-document.querySelectorAll('.tab-btn').forEach(button => {
-button.classList.remove('active');
-});
-document.getElementById(gameId).classList.add('active');
-btn.classList.add('active');
-}
